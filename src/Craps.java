@@ -47,7 +47,7 @@ public class Craps {
                 } while (!gotEnd);
             } else if (dieTotal == 7 || dieTotal == 11) {
                 do { //inner do-while loop that determines if player wants to play again after winning
-                    System.out.print("You won! Game over. Do you want to play again? [Y/N]: ");
+                    System.out.print("You won with a natural on a roll of " + dieTotal + "! Do you want to play again? [Y/N]: ");
                     done = in.nextLine();
                     done = done.toUpperCase();
                     if (done.equals("Y")) {
@@ -69,18 +69,18 @@ public class Craps {
             } else {
                 // Inner else code with do-while loop for if they roll a point sum
                 pointSum = dieTotal;
-
+                System.out.println("The Point Sum is now: " + pointSum);
                 do {
 
                     rollCount++;
                     die1 = random.nextInt(1, 7);
                     die2 = random.nextInt(1, 7);
                     dieTotal = die1 + die2;
-                    System.out.println("For role (" + rollCount + ") Your roles were " + die1 + " and " + die2 + " for a total of: " + dieTotal);
+                    System.out.println("You're trying for the Point Sum of: (" + pointSum + ") on role: (" + rollCount + ") Your roles were " + die1 + " and " + die2 + " for a total of: " + dieTotal);
                     if (dieTotal == 7) {
 
                         do { //inner do-while loop that determines if player wants to play again after crapping out
-                            System.out.print("You crapped out with a (" + dieTotal + ")! Game over. Do you want to play again? [Y/N]: ");
+                            System.out.print("You crapped out with a roll of: (" + dieTotal + ")! Game over. Do you want to play again? [Y/N]: ");
                             done = in.nextLine();
                             done = done.toUpperCase();
                             if (done.equals("Y")) {
@@ -103,7 +103,7 @@ public class Craps {
                         } while (!gotEnd);
                     } else if (dieTotal == pointSum) {
                         do { //inner do-while loop that determines if player wants to play again after winning
-                            System.out.print("You won! Game over. Do you want to play again? [Y/N]: ");
+                            System.out.print("You made the point with " + dieTotal + " and won! Game over. Do you want to play again? [Y/N]: ");
                             done = in.nextLine();
                             done = done.toUpperCase();
                             if (done.equals("Y")) {
